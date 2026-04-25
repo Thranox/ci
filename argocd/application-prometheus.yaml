@@ -11,6 +11,19 @@ spec:
     targetRevision: "70.4.2"
     helm:
       values: |
+        prometheusOperator:
+          admissionWebhooks:                                                                                                                                                                                                                   
+            patch:
+              enabled: false
+          nodeSelector:
+            kubernetes.io/hostname: ubuntu-4gb-nbg1-2
+        kube-state-metrics:
+          nodeSelector:
+            kubernetes.io/hostname: ubuntu-4gb-nbg1-2
+        alertmanager:
+          alertmanagerSpec:
+            nodeSelector:
+              kubernetes.io/hostname: ubuntu-4gb-nbg1-2
         prometheus:
           prometheusSpec:
             nodeSelector:
